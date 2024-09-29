@@ -15,7 +15,7 @@ export class Persona {
     }
 }
 
-class Empleado extends Persona {
+export class Empleado extends Persona {
     salario: number;
     constructor(salario: number, nombre: string, edad: number) {
     super(nombre, edad);
