@@ -14,6 +14,7 @@ export class Persona {
         return this.edad;
     }
 }
+
 class Empleado extends Persona {
     salario: number;
     constructor(salario: number, nombre: string, edad: number) {
@@ -25,4 +26,9 @@ class Empleado extends Persona {
    trabajar(){
     return console.log(`Hola ${this.nombre} tienes 8 laborales por dia.`);
    }
+
+   saludar() {
+    return console.log(`Hola ${this.nombre} tu edad es de ${this.getEdad()} años y tu salario es de ${this.salario}.`);
+   }
 }
+
