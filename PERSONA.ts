@@ -1,4 +1,4 @@
-class persona {
+export class persona {
     nombre: string;
     edad: number;
     constructor(nombre: string, edad: number){
