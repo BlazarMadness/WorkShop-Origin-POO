@@ -1,13 +1,17 @@
+import { Direccion } from "./Direccion";
+
 export class Persona {
     nombre: string;
     private edad: number;
-    constructor(nombre: string, edad: number){
+    direccion: Direccion
+    constructor(nombre: string, edad: number, direccion: Direccion){
     this.nombre = nombre,
     this.edad = edad;
+    this.direccion = direccion;
     }
 
     saludar() {
-        console.log(`Tu nombre es ${this.nombre} y tienes ${this.edad} años.`);
+        console.log(`Tu nombre es ${this.nombre}, vives en ${this.direccion.ciudad} y tienes ${this.edad} años.`);
     }
 
     getEdad( ) {
@@ -17,8 +21,8 @@ export class Persona {
 
 export class Empleado extends Persona {
     salario: number;
-    constructor(salario: number, nombre: string, edad: number) {
-    super(nombre, edad);
+    constructor(salario: number, nombre: string, edad: number, direccion: Direccion) {
+    super(nombre, edad, direccion);
     this.salario = salario;
 
    }
@@ -28,7 +32,7 @@ export class Empleado extends Persona {
    }
 
    saludar() {
-    return console.log(`Hola ${this.nombre} tu edad es de ${this.getEdad()} años y tu salario es de ${this.salario}.`);
+    return console.log(`Hola ${this.nombre}, vives en ${this.direccion.ciudad}, tu edad es de ${this.getEdad()} años y tu salario es de ${this.salario}.`);
    }
 }
 
