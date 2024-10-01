@@ -5,16 +5,16 @@ const transformarYSaludar = (json: any) => {
     persona.saludar();
 };
 
-const crearYSaludar = (): void => {
-    const personaJSON = {
-        nombre: "Juan",
-        edad: 25,
-        direccion: {
-            calle: "av. 1",
-            ciudad: "medellin",
-            pais: "Colombia"}
-    }
+const personaJSON = {
+    nombre: "Juan",
+    edad: 25,
+    direccion: {
+        calle: "av. 1",
+        ciudad: "medellin",
+        pais: "Colombia"}
+}
 
+const crearYSaludar = (): void => {
     transformarYSaludar(personaJSON);
 }
 
