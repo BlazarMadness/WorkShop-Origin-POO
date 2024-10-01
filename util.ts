@@ -1,7 +1,7 @@
 import { Persona } from "./PERSONA";
 
 const transformarYSaludar = (json: any) => {
-    const persona = new Persona(json.nombre, json.edad, json.direccion);
+    const persona = new Persona(json.nombre, json.edad, json.direccion, json.vehiculo);
     persona.saludar();
 };
 
@@ -11,7 +11,8 @@ const personaJSON = {
     direccion: {
         calle: "av. 1",
         ciudad: "medellin",
-        pais: "Colombia"}
+        pais: "Colombia"},
+    vehiculo: []
 }
 
 const crearYSaludar = (): void => {

@@ -1,5 +1,5 @@
 
-abstract class Vehiculo {
+export abstract class Vehiculo {
     marca: string;
 
     constructor(marca: string){
@@ -8,7 +8,7 @@ abstract class Vehiculo {
     abstract arrancar(): void;
 }
 
-class Auto extends Vehiculo {
+export class Auto extends Vehiculo {
     constructor(marca: string){
         super(marca);
     }
@@ -18,7 +18,7 @@ class Auto extends Vehiculo {
     }
 }
 
-class Moto extends Vehiculo {
+export class Moto extends Vehiculo {
     constructor(marca: string){
         super(marca);
     }
