@@ -1,6 +1,7 @@
-
+import { Empleado } from "./PERSONA";
 const empleadosjson = [
     {
+        salario: 1000,
         nombre: "Juan",
         edad: 25,
         direccion: {    
@@ -11,6 +12,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 2000,
         nombre: "Pedro",
         edad: 30,
         direccion: {    
@@ -21,6 +23,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 3000,
         nombre: "Maria",
         edad: 35,
         direccion: {    
@@ -31,6 +34,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 4000,
         nombre: "Luis",
         edad: 40,
         direccion: {    
@@ -41,6 +45,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 5000,
         nombre: "Carlos",
         edad: 45,
         direccion: {    
@@ -51,6 +56,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 6000,
         nombre: "Daniel",
         edad: 50,
         direccion: {    
@@ -61,6 +67,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 7000,
         nombre: "Ana",
         edad: 55,
         direccion: {    
@@ -71,6 +78,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 8000,
         nombre: "Mariana",
         edad: 60,
         direccion: {    
@@ -81,6 +89,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 9000,
         nombre: "Jorge",
         edad: 65,
         direccion: {    
@@ -91,6 +100,7 @@ const empleadosjson = [
         vehiculo: []
     },
     {
+        salario: 10000,
         nombre: "Sofia",
         edad: 70,
         direccion: {    
@@ -102,5 +112,40 @@ const empleadosjson = [
     }
 ]
 
-const jsonEmpleados = JSON.stringify(empleadosjson);
+const jsonListaEmpleados = JSON.stringify(empleadosjson);
 
+
+function transformarJSONAEmpleados(json: string): Empleado[] {
+    const empleadosData = JSON.parse(json);
+    return empleadosData.map((empleado: any) => new Empleado(
+        empleado.salario,
+        empleado.nombre,
+        empleado.edad,
+        empleado.direccion,
+        empleado.vehiculo
+    ));
+}
+
+// Convertir instancias de Empleado a JSON
+function transformarEmpleadosAJSON(empleados: Empleado[]): string {
+    const empleadosDatos = empleados.map(empleado => ({
+        salario: empleado.salario,
+        nombre: empleado.nombre,
+        edad: empleado.getEdad(),
+        direccion: {
+            calle: empleado.direccion.calle,
+            ciudad: empleado.direccion.ciudad,
+            pais: empleado.direccion.pais
+        },
+        vehiculo: empleado.vehiculo
+    }));
+    return JSON.stringify(empleadosDatos);
+}
+
+// Uso de las funciones
+
+const empleados = transformarJSONAEmpleados(jsonListaEmpleados);
+console.log(empleados);
+
+const nuevoJSON = transformarEmpleadosAJSON(empleados);
+console.log(nuevoJSON);
