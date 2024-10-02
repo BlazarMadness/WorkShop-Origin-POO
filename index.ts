@@ -70,3 +70,5 @@ empleado9.saludar();
 const empleado10 = new Empleado(10000, "Sofia", 70, { calle: "av. 10", ciudad: "Cucuta", pais: "Colombia" }, [auto1, Moto1], EstadoCivil.soltero);
 empleado10.saludar();
 
+
+

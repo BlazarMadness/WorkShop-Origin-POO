@@ -48,3 +48,27 @@ export class Empleado extends Persona {
    }
 }
 
+
+export class Empresa {
+    empleados: Empleado[];
+
+    constructor(empleados: Empleado[]){
+        this.empleados = empleados;
+    }
+
+    agregarEmpleado(empleados: Empleado) {
+        this.empleados.push(empleados);
+    }
+
+    eliminarEmpleado() {
+        this.empleados.filter(empleados => empleados.nombre !== empleados.nombre);
+    }
+
+    calcularTotalSalarios() {
+       const totalAPagar = this.empleados.reduce((total, empleados) => total + empleados.salario, 0);
+       return console.log(`El total de salarios a pagar es de ${totalAPagar}`);
+    }
+}
+
+
+
