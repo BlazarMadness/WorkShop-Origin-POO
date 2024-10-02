@@ -88,4 +88,28 @@ export class Proyecto {
 }
 
 
+export class Departamento {
+    nombre: string;
+    empleados: Empleado[];
 
+    constructor (nombre: string, empleados: Empleado[]) {
+        this.nombre = nombre;
+        this.empleados = empleados;
+    }
+
+    añadirEmpleados(empleados: Empleado) {
+        this.empleados.push(empleados);
+    }
+
+    eliminarEmpleado(nombre: string): void {
+        this.empleados = this.empleados.filter(empleado => empleado.nombre !== nombre);
+    }
+
+    listarEmpleados(): void {
+        console.log(`Empleados en el departamento ${this.nombre}:`);
+        this.empleados.forEach(empleado => {
+            console.log(`- ${empleado.nombre}, ${empleado.getEdad()} años, Dirección: ${empleado.direccion.calle}, ${empleado.direccion.ciudad}, ${empleado.direccion.pais}`);
+        });
+    }
+
+}

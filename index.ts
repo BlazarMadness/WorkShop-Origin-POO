@@ -4,6 +4,7 @@ import { Auto } from "./Vehiculo";
 import { Moto } from "./Vehiculo";
 import { EstadoCivil } from "./EstadoCivil";
 import { Proyecto } from "./PERSONA";
+import { Departamento } from "./PERSONA";
 
 
 // instancias de vehiculos
@@ -106,3 +107,24 @@ empleado9.asignarProyecto(proyecto2);
 
 empleado10.asignarProyecto(proyecto1);
 empleado10.asignarProyecto(proyecto2);
+
+
+// Instancias de Departamento
+const departamento = new Departamento ("Desarrollo", [])
+
+departamento.añadirEmpleados(empleado1);
+departamento.añadirEmpleados(empleado2);
+departamento.añadirEmpleados(empleado3);
+departamento.añadirEmpleados(empleado4);
+departamento.añadirEmpleados(empleado5);
+departamento.añadirEmpleados(empleado6);
+departamento.añadirEmpleados(empleado7);
+departamento.añadirEmpleados(empleado8);
+departamento.añadirEmpleados(empleado9);
+departamento.añadirEmpleados(empleado10);
+
+departamento.listarEmpleados();
+
+departamento.eliminarEmpleado("Sofia");
+
+departamento.listarEmpleados();
