@@ -123,7 +123,8 @@ function transformarJSONAEmpleados(json: string): Empleado[] {
         empleado.edad,
         empleado.direccion,
         empleado.vehiculo,
-        empleado.estadoCivil
+        empleado.estadoCivil,
+        empleado.proyectos
     ));
 }
 

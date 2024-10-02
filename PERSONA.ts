@@ -33,10 +33,17 @@ export class Persona {
 
 export class Empleado extends Persona {
     salario: number;
-    constructor(salario: number, nombre: string, edad: number, direccion: Direccion, vehiculo: Vehiculo[], estadoCivil: EstadoCivil) {
+    proyectos: Proyecto[];
+    constructor(salario: number, nombre: string, edad: number, direccion: Direccion, vehiculo: Vehiculo[], estadoCivil: EstadoCivil, proyectos: Proyecto[]) {
     super(nombre, edad, direccion, [], estadoCivil);
     this.salario = salario;
+    this.proyectos = proyectos;
 
+   }
+
+   asignarProyecto(proyectos: Proyecto) {
+    this.proyectos.push(proyectos);
+    console.log(`El proyecto ${proyectos.nombre} fue asignado a ${this.nombre}`);
    }
 
    trabajar(){
@@ -67,6 +74,16 @@ export class Empresa {
     calcularTotalSalarios() {
        const totalAPagar = this.empleados.reduce((total, empleados) => total + empleados.salario, 0);
        return console.log(`El total de salarios a pagar es de ${totalAPagar}`);
+    }
+}
+
+export class Proyecto {
+    nombre: string;
+    descripción: string;
+
+    constructor(nombre: string, descripción: string) {
+        this.nombre = nombre;
+        this.descripción = descripción;
     }
 }
 
